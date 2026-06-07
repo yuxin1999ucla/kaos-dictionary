@@ -1200,14 +1200,24 @@ function submitWord() {
   document.getElementById('formEx').value = '';
   document.getElementById('formExEn').value = '';
 
-  // 显示成功提示
-  const msg = document.getElementById('successMsg');
-  msg.classList.add('visible');
-  setTimeout(() => {
-    msg.classList.remove('visible');
-    switchTab('dictionary');
-  }, 2000);
+  // 显示成功提示    
+  const msg = document.getElementById('successMsg');    
+  msg.classList.add('visible');    
+  setTimeout(() => {      
+    msg.classList.remove('visible');      
+    switchTab('dictionary');    
+  }, 2000);  
 }
+  // ENTER key triggers search  
+  document.getElementById('searchInput').addEventListener('keydown', e => {    
+    if (e.key === 'Enter') handleSearch();  });
+  function openQuestionForm() {    
+    window.open(     
+      "https://docs.google.com/forms/d/e/1FAIpQLScPqJHuIBUo8Q3m-LAKaBSLc7TF7Y5MFFEicF1FPCinKc3_ng/viewform",     
+      "_blank"  
+    ); 
+  }
+
 
 
   loadWordsFromStorage();
